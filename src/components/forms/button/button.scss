@@ -2,11 +2,96 @@
 // Сніппет (HTML): btn
 .button {
 	display: inline-flex;
-	padding: 0px 0px;
+	border: 1px solid $border-default;
+	border-radius: 2px;
+	padding: 10px 16px;
+	backdrop-filter: blur(30px);
+	background-color: $background-muted;
+	font-family: $secondFamily;
+	font-size: 13px;
+	line-height: 160%;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: $text-default;
+	transition: all 0.5s ease;
+
 	@media (any-hover: hover) {
 		&:hover {
+			color: $text-inverse;
+			background-color: $background-primary;
 		}
 	}
+
+	&--primary {
+		color: $text-inverse;
+		background-color: $background-primary;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: $text-default;
+				background-color: $background-muted;
+			}
+		}
+	}
+
+	&--icon {
+		flex-direction: row-reverse;
+		align-items: center;
+		gap: 12px;
+	}
+
+	&--fw {
+		width: 100%;
+	}
+}
+
+.button-text {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	font-family: $fontFamily;
+	font-size: 13px;
+	line-height: 160%;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: $text-default;
+	transition: filter 0.5s ease;
+	white-space: nowrap;
+
+	&::before {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 1px solid $border-default;
+		border-radius: 50%;
+		padding: 8px 12px;
+		width: 32px;
+		height: 32px;
+		transition: all 0.5s ease;
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			filter: brightness(1.1);
+			&::before {
+				color: $text-inverse;
+				background-color: $background-primary;
+			}
+		}
+	}
+
+	&--big {
+		&::before {
+			padding: 8px 12px;
+			width: 46px;
+			height: 46px;
+		}
+	}
+
+	&--reverse {
+		flex-direction: row-reverse;
+	}
+
 	&--fw {
 		width: 100%;
 	}
