@@ -1,0 +1,62 @@
+@font-face { 
+	font-family: "iconfont"; 
+	font-display: swap;
+	src: url("D://WEB/FULL/front-end/_java-sript/projects/seites/arik-portfolio/portfolio/src/assets/svgicons/preview/iconfont.woff2?c7d8a9b80d8f2ca3130685ab2600464a") format("woff2"); 
+} 
+[class*="--icon-"]::before{
+	font-family: iconfont; 
+}
+	[class*="--icon-s-yt"]::before { 
+		content: "\f101"; 
+	} 
+	[class*="--icon-s-ws"]::before { 
+		content: "\f102"; 
+	} 
+	[class*="--icon-s-tw"]::before { 
+		content: "\f103"; 
+	} 
+	[class*="--icon-s-tictoc"]::before { 
+		content: "\f104"; 
+	} 
+	[class*="--icon-s-tch"]::before { 
+		content: "\f105"; 
+	} 
+	[class*="--icon-s-ptn"]::before { 
+		content: "\f106"; 
+	} 
+	[class*="--icon-s-inst"]::before { 
+		content: "\f107"; 
+	} 
+	[class*="--icon-s-fb"]::before { 
+		content: "\f108"; 
+	} 
+	[class*="--icon-s-drb"]::before { 
+		content: "\f109"; 
+	} 
+	[class*="--icon-s-bh"]::before { 
+		content: "\f10a"; 
+	} 
+	[class*="--icon-plus"]::before { 
+		content: "\f10b"; 
+	} 
+	[class*="--icon-phone"]::before { 
+		content: "\f10c"; 
+	} 
+	[class*="--icon-minus"]::before { 
+		content: "\f10d"; 
+	} 
+	[class*="--icon-mail"]::before { 
+		content: "\f10e"; 
+	} 
+	[class*="--icon-info"]::before { 
+		content: "\f10f"; 
+	} 
+	[class*="--icon-check"]::before { 
+		content: "\f110"; 
+	} 
+	[class*="--icon-chain"]::before { 
+		content: "\f111"; 
+	} 
+	[class*="--icon-arrow"]::before { 
+		content: "\f112"; 
+	} 
