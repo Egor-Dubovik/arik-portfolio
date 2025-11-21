@@ -1,0 +1,109 @@
+.works {
+	display: grid;
+	@include adaptiveValue('gap', 32, 15);
+	grid-template-columns: repeat(auto-fill, minmax(min(450px, 100%), 1fr));
+}
+.item-work {
+	overflow: hidden;
+	position: relative;
+	transition: scale 0.5s;
+
+	&::after {
+		content: '';
+		transition: opacity 0.5s;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		pointer-events: none;
+		opacity: 0;
+		background-color: rgba(14, 14, 14, 0.9);
+	}
+
+	// .item-work__picture
+	&__picture {
+		display: block;
+		position: relative;
+		aspect-ratio: 684 / 513;
+
+		&::after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background: url('@img/noise.png') center / cover no-repeat;
+		}
+	}
+	// .item-work__image
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: scale 0.5s, rotate 0.5s;
+	}
+	// .item-work__body
+	&__body {
+		color: $text-default;
+		font-family: $secondFamily;
+		border-radius: 2px;
+		border: 1px solid $border-default;
+		background: $background-muted;
+		backdrop-filter: blur(15px);
+		position: absolute;
+		@include adaptiveValue('left', 32, 10);
+		@include adaptiveValue('right', 32, 10);
+		@include adaptiveValue('bottom', 32, 10);
+		padding: 12px 16px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 5px;
+		align-items: center;
+		justify-content: space-between;
+	}
+	// .item-work__name
+	&__name {
+		font-weight: 300;
+		line-height: 1.3;
+		letter-spacing: 1px;
+		@include adaptiveValue('font-size', 24, 18);
+	}
+	// .item-work__link-name
+	&__link-name {
+		transition: color 0.3s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: $primary-hover;
+			}
+		}
+	}
+	// .item-work__category
+	&__category {
+		font-size: 13px;
+		font-weight: 400;
+		line-height: 1.6;
+		letter-spacing: 1.5px;
+		text-transform: uppercase;
+		transition: color 0.3s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: $primary-hover;
+			}
+		}
+	}
+
+	html:not([data-fls-touch]) & {
+		@media (any-hover: hover), (pointer: fine) {
+			&:hover {
+				.item-work__image {
+					scale: 1.1;
+					rotate: 5deg;
+				}
+			}
+		}
+	}
+}

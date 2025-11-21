@@ -105,3 +105,26 @@
 }
 
 //========================================================================================================================================================
+.selected-work {
+	@include adaptiveValue('padding-bottom', 160, 60);
+
+	// translate: 0 100px;
+	// transition: translate 0.8s;
+	// &.--watcher-view {
+	// 	translate: 0 0;
+	// }
+
+	// .selected-work__container
+	&__container {
+	}
+	&__items {
+		html:not([data-fls-touch]) & {
+			&:has(.item-work:hover) .item-work:not(:hover) {
+				// scale: 0.99;
+				&::after {
+					opacity: 0.9;
+				}
+			}
+		}
+	}
+}

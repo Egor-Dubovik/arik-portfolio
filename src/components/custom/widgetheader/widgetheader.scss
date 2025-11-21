@@ -1,0 +1,21 @@
+.widgetheader {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 15px;
+	align-items: center;
+	@include adaptiveValue('margin-bottom', 32, 15);
+	@media (min-width: toEm($mobile)) {
+		padding-inline: 32px;
+	}
+	&__title {
+		@include adaptiveValue('font-size', 64, 32);
+		line-height: 1.1;
+		font-weight: 300;
+		color: $text-default;
+		font-family: $secondFamily;
+		span {
+			font-family: $thirdFamily;
+		}
+	}
+}

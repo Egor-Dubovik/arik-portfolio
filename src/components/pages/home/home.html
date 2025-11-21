@@ -54,4 +54,46 @@
 			</include>
 		</div>
 	</div>
+	<section data-fls-watcher data-fls-watcher-once class="page__selected-work selected-work">
+		<div class="selected-work__container">
+			<div data-fls-widgetheader class="selected-work__widgetheader widgetheader">
+				<h2 class="widgetheader__title">Selected <span>Work</span></h2>
+				<a href="#" data-fls-button class="widgetheader__button button-text button--icon-arrow button--icon-ul">See all</a>
+			</div>
+			<div class="selected-work__items works">
+				<include src="@components/custom/work/work.html" locals='{
+				"link":"#",
+				"category-link":"#",
+				"image":"@img/works/01.jpg",
+				"name":"Space",
+				"category":"Webdesign"
+				}'>
+				</include>
+				<include src="@components/custom/work/work.html" locals='{
+				"link":"#",
+				"category-link":"#",
+				"image":"@img/works/02.jpg",
+				"name":"Nova",
+				"category":"Webdesign"
+				}'>
+				</include>
+				<include src="@components/custom/work/work.html" locals='{
+				"link":"#",
+				"category-link":"#",
+				"image":"@img/works/03.jpg",
+				"name":"Sonic",
+				"category":"Webdesign"
+				}'>
+				</include>
+				<include src="@components/custom/work/work.html" locals='{
+				"link":"#",
+				"category-link":"#",
+				"image":"@img/works/04.jpg",
+				"name":"Solar",
+				"category":"Webdesign"
+				}'>
+				</include>
+			</div>
+		</div>
+	</section>
 </main>
