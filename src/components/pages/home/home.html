@@ -32,4 +32,26 @@
 			<img src="@img/clients/06.svg" alt="Image">
 		</li>
 	</div>
+	<div class="page__skills skills">
+		<div data-fls-watcher data-fls-watcher-once class="skills__container">
+			<include src="@components/custom/skill/skill.html" locals='{
+				"title":"Web design",
+				"text":"Visually stunning web designs that captivate your audience by blending your brand voice and customer needs.",
+				"button":"About Webdesign"
+			}'>
+			</include>
+			<include src="@components/custom/skill/skill.html" locals='{
+				"title":"Development",
+				"text":"Get custom web development solutions that are tailored to your specifications, designed to deliver a flawless user experience.",
+				"button":"About Webflow"
+			}'>
+			</include>
+			<include src="@components/custom/skill/skill.html" locals='{
+				"title":"Content & Seo",
+				"text":"Proven SEO strategies that enhance your online performance, bringing you to the forefront of organic search results.",
+				"button":"About SEO"
+			}'>
+			</include>
+		</div>
+	</div>
 </main>
