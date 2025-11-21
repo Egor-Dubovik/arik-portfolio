@@ -1,14 +1,14 @@
 // Підключення функціоналу "Чортоги Фрілансера"
-import { FLS } from "@js/common/functions.js";
+import { FLS } from '@js/common/functions.js';
 
-import "./marquee.scss";
+import './marquee.scss';
 
 const marquee = () => {
-	const $marqueeArray = document.querySelectorAll("[data-fls-marquee]");
+	const $marqueeArray = document.querySelectorAll('[data-fls-marquee]');
 	const ATTR_NAMES = {
-		wrapper: "data-fls-marquee-wrapper",
-		inner: "data-fls-marquee-inner",
-		item: "data-fls-marquee-item",
+		wrapper: 'data-fls-marquee-wrapper',
+		inner: 'data-fls-marquee-inner',
+		item: 'data-fls-marquee-item',
 	};
 
 	if (!$marqueeArray.length) return;
@@ -28,7 +28,7 @@ const marquee = () => {
 		};
 	};
 
-	const onWindowWidthResize = (cb) => {
+	const onWindowWidthResize = cb => {
 		if (!cb && !isFunction(cb)) return;
 
 		let prevWidth = 0;
@@ -42,12 +42,12 @@ const marquee = () => {
 			}
 		};
 
-		window.addEventListener("resize", debounce(50, handleResize));
+		window.addEventListener('resize', debounce(50, handleResize));
 
 		handleResize();
 	};
 
-	const buildMarquee = (marqueeNode) => {
+	const buildMarquee = marqueeNode => {
 		if (!marqueeNode) return;
 
 		const $marquee = marqueeNode;
@@ -55,9 +55,9 @@ const marquee = () => {
 
 		if (!$childElements.length) return;
 		//$marquee.setAttribute(ATTR_NAMES.wrapper, '');
-		Array.from($childElements).forEach(($childItem) => $childItem.setAttribute(ATTR_NAMES.item, ''));
+		Array.from($childElements).forEach($childItem => $childItem.setAttribute(ATTR_NAMES.item, ''));
 
-		const htmlStructure = `<div ${ATTR_NAMES.inner}>${$marquee.innerHTML}</div>`;
+		const htmlStructure = `<ul ${ATTR_NAMES.inner}>${$marquee.innerHTML}</ul>`;
 		$marquee.innerHTML = htmlStructure;
 	};
 
@@ -66,7 +66,7 @@ const marquee = () => {
 		return $el.offsetWidth;
 	};
 
-	$marqueeArray.forEach(($wrapper) => {
+	$marqueeArray.forEach($wrapper => {
 		if (!$wrapper) return;
 
 		buildMarquee($wrapper);
@@ -76,16 +76,22 @@ const marquee = () => {
 
 		if (!$marqueeInner) return;
 
-		const dataMarqueeSpace = parseFloat($wrapper.getAttribute("data-fls-marquee-space"));
+		const dataMarqueeSpace = parseFloat($wrapper.getAttribute('data-fls-marquee-space'));
 		const $items = $wrapper.querySelectorAll(`[${ATTR_NAMES.item}]`);
-		const speed = parseFloat($wrapper.getAttribute("data-fls-marquee-speed")) / 10 || 100;
-		const isMousePaused = $wrapper.hasAttribute("data-fls-marquee-pause");
-		const direction = $wrapper.getAttribute("data-fls-marquee-direction");
-		const isVertical = direction === "bottom" || direction === "top";
+		const speed = parseFloat($wrapper.getAttribute('data-fls-marquee-speed')) / 10 || 100;
+		const isMousePaused = $wrapper.hasAttribute('data-fls-marquee-pause');
+		const direction = $wrapper.getAttribute('data-fls-marquee-direction');
+		const isVertical = direction === 'bottom' || direction === 'top';
 		const animName = `marqueeAnimation-${Math.floor(Math.random() * 10000000)}`;
-		let spaceBetweenItem = parseFloat(window.getComputedStyle($items[0])?.getPropertyValue("margin-right"));
-		let spaceBetween = spaceBetweenItem ? spaceBetweenItem : !isNaN(dataMarqueeSpace) ? dataMarqueeSpace : 30;
-		let startPosition = parseFloat($wrapper.getAttribute("data-fls-marquee-start")) || 0;
+		let spaceBetweenItem = parseFloat(
+			window.getComputedStyle($items[0])?.getPropertyValue('margin-right')
+		);
+		let spaceBetween = spaceBetweenItem
+			? spaceBetweenItem
+			: !isNaN(dataMarqueeSpace)
+			? dataMarqueeSpace
+			: 30;
+		let startPosition = parseFloat($wrapper.getAttribute('data-fls-marquee-start')) || 0;
 
 		let sumSize = 0;
 		let firstScreenVisibleSize = 0;
@@ -95,23 +101,24 @@ const marquee = () => {
 		let counterDuplicateElements = 0;
 
 		const initEvents = () => {
-			if (startPosition) $marqueeInner.addEventListener("animationiteration", onChangeStartPosition);
+			if (startPosition)
+				$marqueeInner.addEventListener('animationiteration', onChangeStartPosition);
 
 			if (!isMousePaused) return;
-			$marqueeInner.removeEventListener("mouseenter", onChangePaused);
-			$marqueeInner.removeEventListener("mouseleave", onChangePaused);
-			$marqueeInner.addEventListener("mouseenter", onChangePaused);
-			$marqueeInner.addEventListener("mouseleave", onChangePaused);
+			$marqueeInner.removeEventListener('mouseenter', onChangePaused);
+			$marqueeInner.removeEventListener('mouseleave', onChangePaused);
+			$marqueeInner.addEventListener('mouseenter', onChangePaused);
+			$marqueeInner.addEventListener('mouseleave', onChangePaused);
 		};
 
 		const onChangeStartPosition = () => {
 			startPosition = 0;
-			$marqueeInner.removeEventListener("animationiteration", onChangeStartPosition);
+			$marqueeInner.removeEventListener('animationiteration', onChangeStartPosition);
 			onResize();
 		};
 
-		const setBaseStyles = (firstScreenVisibleSize) => {
-			let baseStyle = "display: flex; flex-wrap: nowrap;";
+		const setBaseStyles = firstScreenVisibleSize => {
+			let baseStyle = 'display: flex; flex-wrap: nowrap;';
 
 			if (isVertical) {
 				baseStyle += `
@@ -119,7 +126,7 @@ const marquee = () => {
 				position: relative;
 				will-change: transform;`;
 
-				if (direction === "bottom") {
+				if (direction === 'bottom') {
 					baseStyle += `top: -${firstScreenVisibleSize}px;`;
 				}
 			} else {
@@ -127,7 +134,7 @@ const marquee = () => {
 				position: relative;
 				will-change: transform;`;
 
-				if (direction === "right") {
+				if (direction === 'right') {
 					baseStyle += `inset-inline-start: -${firstScreenVisibleSize}px;;`;
 				}
 			}
@@ -135,10 +142,10 @@ const marquee = () => {
 			$marqueeInner.style.cssText = baseStyle;
 		};
 
-		const setdirectionAnim = (totalWidth) => {
+		const setdirectionAnim = totalWidth => {
 			switch (direction) {
-				case "right":
-				case "bottom":
+				case 'right':
+				case 'bottom':
 					return totalWidth;
 				default:
 					return -totalWidth;
@@ -148,22 +155,25 @@ const marquee = () => {
 		const animation = () => {
 			const keyFrameCss = `@keyframes ${animName} {
 					 0% {
-						 transform: translate${isVertical ? "Y" : "X"}(${!isVertical && window.stateRtl ? -startPosition : startPosition}%);
+						 transform: translate${isVertical ? 'Y' : 'X'}(${
+				!isVertical && window.stateRtl ? -startPosition : startPosition
+			}%);
 					 }
 					 100% {
-						 transform: translate${isVertical ? "Y" : "X"}(${setdirectionAnim(
+						 transform: translate${isVertical ? 'Y' : 'X'}(${setdirectionAnim(
 				!isVertical && window.stateRtl ? -firstScreenVisibleSize : firstScreenVisibleSize
 			)}px);
 					 }
 				 }`;
-			const $style = document.createElement("style");
+			const $style = document.createElement('style');
 
 			$style.classList.add(animName);
 			$style.innerHTML = keyFrameCss;
 			head.append($style);
 
-			$marqueeInner.style.animation = `${animName} ${(firstScreenVisibleSize + (startPosition * firstScreenVisibleSize) / 100) / speed
-				}s infinite linear`;
+			$marqueeInner.style.animation = `${animName} ${
+				(firstScreenVisibleSize + (startPosition * firstScreenVisibleSize) / 100) / speed
+			}s infinite linear`;
 		};
 
 		const addDublicateElements = () => {
@@ -176,19 +186,19 @@ const marquee = () => {
 			if (!$childrenEl.length) return;
 
 			if (!cacheArray.length) {
-				cacheArray = $childrenEl.map(($item) => $item);
+				cacheArray = $childrenEl.map($item => $item);
 			} else {
 				$childrenEl = [...cacheArray];
 			}
 
-			$marqueeInner.style.display = "flex";
-			if (isVertical) $marqueeInner.style.flexDirection = "column";
-			$marqueeInner.innerHTML = "";
-			$childrenEl.forEach(($item) => {
+			$marqueeInner.style.display = 'flex';
+			if (isVertical) $marqueeInner.style.flexDirection = 'column';
+			$marqueeInner.innerHTML = '';
+			$childrenEl.forEach($item => {
 				$marqueeInner.append($item);
 			});
 
-			$childrenEl.forEach(($item) => {
+			$childrenEl.forEach($item => {
 				if (isVertical) {
 					$item.style.marginBottom = `${spaceBetween}px`;
 				} else {
@@ -218,7 +228,10 @@ const marquee = () => {
 
 				sumSize += getElSize($lastElement, isVertical) + spaceBetween;
 
-				if (firstScreenVisibleSize < $parentNodeWidth || counterDuplicateElements % initialElementsLength !== 0) {
+				if (
+					firstScreenVisibleSize < $parentNodeWidth ||
+					counterDuplicateElements % initialElementsLength !== 0
+				) {
 					counterDuplicateElements += 1;
 					firstScreenVisibleSize += getElSize($lastElement, isVertical) + spaceBetween;
 				}
@@ -229,10 +242,16 @@ const marquee = () => {
 
 		const correctSpaceBetween = () => {
 			if (spaceBetweenItem) {
-				$items.forEach(($item) => $item.style.removeProperty("margin-right"));
+				$items.forEach($item => $item.style.removeProperty('margin-right'));
 
-				spaceBetweenItem = parseFloat(window.getComputedStyle($items[0]).getPropertyValue("margin-right"));
-				spaceBetween = spaceBetweenItem ? spaceBetweenItem : !isNaN(dataMarqueeSpace) ? dataMarqueeSpace : 30;
+				spaceBetweenItem = parseFloat(
+					window.getComputedStyle($items[0]).getPropertyValue('margin-right')
+				);
+				spaceBetween = spaceBetweenItem
+					? spaceBetweenItem
+					: !isNaN(dataMarqueeSpace)
+					? dataMarqueeSpace
+					: 30;
 			}
 		};
 
@@ -248,10 +267,10 @@ const marquee = () => {
 			init();
 		};
 
-		const onChangePaused = (e) => {
+		const onChangePaused = e => {
 			const { type, target } = e;
 
-			target.style.animationPlayState = type === "mouseenter" ? "paused" : "running";
+			target.style.animationPlayState = type === 'mouseenter' ? 'paused' : 'running';
 		};
 
 		onWindowWidthResize(onResize);

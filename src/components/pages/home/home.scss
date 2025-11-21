@@ -14,7 +14,7 @@
 }
 //========================================================================================================================================================
 .hero {
-	// @include adaptiveValue('padding-block', 50, 15);
+	@include adaptiveValue('padding-block', 40, 15);
 
 	// .hero__container
 	&__container {
@@ -55,4 +55,42 @@
 			opacity: 1;
 		}
 	}
+}
+
+//========================================================================================================================================================
+.clients {
+	@include adaptiveValue('padding-top', 80, 15);
+	@include adaptiveValue('padding-bottom', 80, 60);
+	// .clients__container
+
+	[data-fls-marquee-inner] {
+		align-items: center;
+		@include adaptiveValue('gap', 20, 0);
+		// opacity: 0;
+		// translate: 0 100%;
+
+		// &.--watcher-view {
+		// 	transition: all 0.8s;
+		// 	opacity: 1;
+		// 	translate: 0 0;
+		// }
+	}
+
+	&__item {
+		// scale: 0;
+		.--watcher-view & {
+			// transition-duration: 0.8s;
+			// @for $i from 1 through 6 {
+			// 	&:nth-child(#{$i}) {
+			// 		$delay: 0.1 * $i;
+			// 		transition-delay: #{$delay}s;
+			// 	}
+			// }
+			// scale: 1;
+		}
+	}
+}
+
+//========================================================================================================================================================
+.skills {
 }
