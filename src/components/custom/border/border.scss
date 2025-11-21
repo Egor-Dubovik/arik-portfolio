@@ -1,0 +1,6 @@
+[data-fls-border] {
+	border: 1px solid $border-default;
+	background-color: $background-muted;
+	backdrop-filter: blur(15px);
+	border-radius: 2px;
+}
