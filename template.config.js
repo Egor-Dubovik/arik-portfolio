@@ -7,8 +7,8 @@ const isWp = process.argv.includes('--wp');
 export default {
 	lang: 'ua', // Наразі тільки Українська
 	vscode: {
-		settings: true,
-		snippets: true,
+		settings: false,
+		snippets: false,
 	},
 	devcomponents: {
 		enable: true,

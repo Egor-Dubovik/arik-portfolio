@@ -9,11 +9,12 @@
 	background-color: $background-muted;
 	font-family: $secondFamily;
 	font-size: 13px;
-	line-height: 160%;
+	line-height: 147%;
 	letter-spacing: 0.12em;
 	text-transform: uppercase;
 	color: $text-default;
 	transition: all 0.5s ease;
+	white-space: nowrap;
 
 	@media (any-hover: hover) {
 		&:hover {
@@ -29,7 +30,7 @@
 		@media (any-hover: hover) {
 			&:hover {
 				color: $text-default;
-				background-color: $background-muted;
+				background-color: rgba(240, 213, 176, 0.1);
 			}
 		}
 	}

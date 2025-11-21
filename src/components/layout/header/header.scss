@@ -1,5 +1,54 @@
 .header {
+	position: fixed;
+	top: 15px;
+	left: 0;
+	right: 0;
+	z-index: 50;
+
+	@media (min-width: toEm($mobile)) {
+		display: flex;
+		justify-content: center;
+		top: 48px;
+	}
 	// .header__container
 	&__container {
+	}
+
+	&__link-logo,
+	&__logo,
+	&__button {
+		position: relative;
+		z-index: 5;
+	}
+
+	&__logo {
+		user-select: none;
+	}
+
+	&__body {
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: 32px;
+		padding: 12px;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: 1px solid $border-default;
+			border-radius: 2px;
+			padding: 12px 12px 12px 24px;
+			backdrop-filter: blur(30px);
+			background: $background-muted;
+			z-index: 2;
+		}
+
+		@media (max-width: toEm($mobileSmall)) {
+			gap: 16px;
+		}
 	}
 }

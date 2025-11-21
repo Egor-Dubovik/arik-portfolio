@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
-	<include src="@components/layout/head/head.html" locals='{
+<include src="@components/layout/head/head.html" locals='{
 		"title":"Розробка компонентів", 
 		"preloader": {
 			"enable":"false",
@@ -10,23 +9,33 @@
 		"keywords":"", 
 		"description":""
 		}'>
-	</include>
-	<style>
-		.components{
-			padding-block: 50px;
-			display: flex;
-			flex-direction: column;
-			gap: 30px;
-		}
-	</style>
-	<body>
-		<div class="components">
-			<div class="components__container">
-				<div class="components__item">
+</include>
+<style>
+	.components {
+		padding-block: 50px;
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+	}
+</style>
 
-				</div>
+<body>
+	<div class="components">
+		<div class="components__container">
+			<div class="components__item">
+				<button data-fls-button class="button">Button</button>
+				<button data-fls-button class="button button--primary">Button</button>
+				<button data-fls-button class="button button--primary">Button</button>
+				<button data-fls-button class="button button--primary button--icon button--icon-arrow button--icon-ul">Button</button>
+				<button data-fls-button class="button-text button--icon-arrow button--icon-ul">Button text</button>
+				<button data-fls-button class="button-text button-text--big button--icon-arrow button--icon-ul">Button text</button>
+				<button data-fls-button class="button-text button-text--reverse button-text--big button--icon-arrow button--icon-ul">Button text</button>
+			</div>
+			<div class="components__item">
 			</div>
 		</div>
-	</body>
-	<script type="module" src="@js/app.js"></script>
+	</div>
+</body>
+<script type="module" src="@js/app.js"></script>
+
 </html>

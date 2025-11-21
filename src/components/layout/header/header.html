@@ -1,5 +1,17 @@
 <header data-fls-header class="header">
 	<div class="header__container">
-		<!-- <include src="@components/layout/menu/menu.html" locals='{"active":"[[active]]"}'></include> -->
+		<div class="header__body">
+			<if condition="'[[home]]' === 'true'">
+				<img class="header__logo" src="@img/logo.svg" alt="Logo">
+			</if>
+			<else>
+				<a href="index.html" class="header__link-logo">
+					<img class="header__logo" src="@img/logo.svg" alt="Logo">
+				</a>
+			</else>
+			<include src="@components/layout/menu/menu.html" locals='{"active":""}'></include>
+			<a href="#" data-fls-button class="header__button button button--primary">Let’s talk</a>
+			<button type="button" data-fls-menu class="header__button icon-menu"><span></span></button>
+		</div>
 	</div>
 </header>
