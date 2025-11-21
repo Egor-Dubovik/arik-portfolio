@@ -1,0 +1,58 @@
+.page {
+	// .page__hero
+	&__hero {
+	}
+	// .page__clients
+	&__clients {
+	}
+	// .page__skills
+	&__skills {
+	}
+	// .page__selected-work
+	&__selected-work {
+	}
+}
+//========================================================================================================================================================
+.hero {
+	// @include adaptiveValue('padding-block', 50, 15);
+
+	// .hero__container
+	&__container {
+		text-align: center;
+		min-height: 100svh;
+
+		display: grid;
+		align-content: center;
+	}
+	// .hero__image
+	&__image {
+		position: relative;
+		width: 100vw;
+		height: 54svh;
+		object-fit: contain;
+		mix-blend-mode: lighten;
+		// opacity: 0;
+		// [data-fls-loaded] & {
+		// 	animation: show-items 1.5s ease forwards;
+		// }
+	}
+	// .hero__blockhead
+	&__blockhead {
+		position: relative;
+		translate: 0 -12%;
+		// opacity: 0;
+		// [data-fls-loaded] & {
+		// 	animation: show-items 1.5s ease forwards 0.5s;
+		// }
+	}
+	@keyframes show-items {
+		0% {
+			top: 10%;
+			opacity: 0;
+		}
+		100% {
+			top: 0;
+			opacity: 1;
+		}
+	}
+}

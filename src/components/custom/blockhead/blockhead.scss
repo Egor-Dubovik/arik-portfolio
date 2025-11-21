@@ -1,0 +1,78 @@
+.blockhead {
+	text-align: center;
+	display: grid;
+	justify-items: center;
+	@include adaptiveValue('gap', 16, 8);
+	text-wrap: balance;
+
+	// > * {
+	// 	&[data-fls-watcher] {
+	// 		translate: 0 20%;
+	// 		opacity: 0;
+	// 		transition: all 0.8s;
+	// 	}
+	// 	&.--watcher-view {
+	// 		opacity: 1;
+	// 		translate: 0;
+	// 	}
+	// }
+	&--gap-8 {
+		gap: 8px;
+	}
+	&--left {
+		justify-items: start;
+		text-align: left;
+	}
+	&__label,
+	&__title {
+		max-width: 1000px;
+		color: $text-default;
+		font-family: $secondFamily;
+	}
+	// .blockhead__label
+	&__label {
+		font-size: 13px;
+		font-weight: 400;
+		line-height: 1.6;
+		letter-spacing: 1.5px;
+		text-transform: uppercase;
+	}
+	// .blockhead__title
+	&__title {
+		@include adaptiveValue('font-size', 128, 45);
+		font-weight: 300;
+		span {
+			display: block;
+			font-family: $thirdFamily;
+		}
+		&--size-80 {
+			font-size: 80px;
+			@include adaptiveValue('font-size', 80, 28);
+		}
+		&--size-96 {
+			@include adaptiveValue('font-size', 96, 38);
+		}
+		&--size-160 {
+			@include adaptiveValue('font-size', 160, 45);
+
+			@media (max-height: toEm(850)) {
+				@include adaptiveValue('font-size', 128, 45);
+			}
+		}
+	}
+	// .blockhead__text
+	&__text {
+		max-width: 600px;
+		line-height: 1.7;
+		@include adaptiveValue('font-size', 20, 15);
+		&--size-18 {
+			@include adaptiveValue('font-size', 18, 14);
+		}
+		&--size-24 {
+			@include adaptiveValue('font-size', 24, 16);
+		}
+	}
+	&__button {
+		margin-top: 24px;
+	}
+}
