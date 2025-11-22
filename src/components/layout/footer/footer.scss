@@ -60,13 +60,14 @@
 			display: flex;
 			gap: 5px;
 			align-items: center;
+
 			&::after {
-				font-size: 10px;
-				rotate: 180deg;
-				color: #fff;
-				transition: rotate 0.3s;
 				content: '\f112';
 				font-family: 'iconfont';
+				font-size: 10px;
+				rotate: 180deg;
+				color: $primary-hover;
+				transition: rotate 0.3s;
 			}
 		}
 		.--spoller-active & {
