@@ -1,0 +1,60 @@
+.social {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+	&--text {
+		.social__link {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			text-transform: uppercase;
+			font-size: 13px;
+			text-transform: uppercase;
+			letter-spacing: 1.5px;
+			line-height: 1.6;
+		}
+	}
+	// .social__item
+	&__item {
+		flex-shrink: 0;
+
+		[data-fls-watcher] & {
+			scale: 0;
+		}
+		.--watcher-view & {
+			transition-duration: 0.8s;
+			@for $i from 1 through 6 {
+				&:nth-child(#{$i}) {
+					$delay: 0.1 * $i + 0.3;
+					transition-delay: #{$delay}s;
+				}
+			}
+			scale: 1;
+		}
+	}
+	// .social__link
+	&__link {
+		&::before {
+			border: 1px solid $border-default;
+			background-color: $background-muted;
+			backdrop-filter: blur(15px);
+			align-content: center;
+			text-align: center;
+			font-size: 13px;
+			width: 46px;
+			aspect-ratio: 1;
+			border-radius: 50%;
+			color: $text-default;
+			transition: color 0.3s, background-color 0.3s;
+		}
+		html:not([data-fls-touch]) & {
+			&:hover {
+				&::before {
+					color: $text-inverse;
+					background-color: $background-primary;
+				}
+			}
+		}
+	}
+}
