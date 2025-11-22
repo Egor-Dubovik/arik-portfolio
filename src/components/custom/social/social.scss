@@ -35,6 +35,7 @@
 	}
 	// .social__link
 	&__link {
+		transition: color 0.3s ease;
 		&::before {
 			border: 1px solid $border-default;
 			background-color: $background-muted;
@@ -50,6 +51,7 @@
 		}
 		html:not([data-fls-touch]) & {
 			&:hover {
+				color: $text-default;
 				&::before {
 					color: $text-inverse;
 					background-color: $background-primary;
