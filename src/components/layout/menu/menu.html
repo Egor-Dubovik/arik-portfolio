@@ -2,12 +2,12 @@
 	<nav class="menu__body">
 		<ul class="menu__list">
 			<each loop='item in [
-					{"href": "#","ancor": "Services"},
-					{"href": "#","ancor": "Work"},
-					{"href": "#","ancor": "About"},
-					{"href": "#","ancor": "Blog"}
+					{"href": "services","ancor": "Services"},
+					{"href": "work","ancor": "Work"},
+					{"href": "about","ancor": "About"},
+					{"href": "blog","ancor": "Blog"}
 				]'>
-				<if condition="'[[active]]' === '[[item.ancor]]'">
+				<if condition="'[[active]]' === '[[item.href]]'">
 					<li class="menu__item">
 						<a href="[[item.href]]" class="menu__link menu__link--active">[[item.ancor]]</a>
 					</li>

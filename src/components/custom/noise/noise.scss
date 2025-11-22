@@ -1,0 +1,12 @@
+[data-fls-noise] {
+	position: relative;
+	&::after {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background: url("@img/noise.png") center repeat;
+	}
+}

@@ -1,0 +1,41 @@
+.social-blocks {
+	display: flex;
+	gap: 16px;
+	flex-wrap: wrap;
+	// .social-blocks__item
+	&__item {
+	}
+	&__link {
+		color: $liteColor;
+		font-family: $fontSatoshi;
+		font-size: 13px;
+		line-height: 1.7; /* 20.8px */
+		letter-spacing: 1.5px;
+		text-transform: uppercase;
+		// display: flex;
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+		align-items: center;
+		gap: 16px;
+		transition: all 0.3s;
+		@include adaptiveValue('padding-inline', 24, 15);
+		@include adaptiveValue('padding-block', 16, 10);
+		&::before {
+			font-size: 18px;
+			line-height: 1;
+		}
+		&::after {
+			line-height: 1;
+			font-size: 11px;
+			rotate: 45deg;
+			font-family: iconfont;
+			content: '\f112';
+		}
+		@media (any-hover: hover) and (any-pointer: fine) {
+			&:hover {
+				color: $darkColor;
+				background-color: $liteColor;
+			}
+		}
+	}
+}
