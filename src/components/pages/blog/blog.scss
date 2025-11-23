@@ -1,0 +1,37 @@
+.blog {
+	@include adaptiveValue("padding-top", 224, 120);
+	@include adaptiveValue("padding-bottom", 128, 30);
+	// .blog__hero
+	&__hero {
+		@include adaptiveValue("margin-bottom", 64, 30);
+	}
+	// .blog__body
+	&__body {
+	}
+}
+.hero-blog {
+	// .hero-blog__container
+	&__container {
+	}
+	// .hero-blog__blockhead
+	&__blockhead {
+	}
+}
+
+.body-blog {
+	// .body-blog__container
+	&__container {
+		max-width: 1600px;
+	}
+	// .body-blog__items
+	&__items {
+		display: grid;
+		gap: 32px;
+		grid-template-columns: repeat(auto-fill, minmax(min(370px, 100%), 1fr));
+	}
+	// .body-blog__item
+	&__item {
+	}
+}
+.data-fls-title {
+}
