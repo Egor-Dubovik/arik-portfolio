@@ -16,7 +16,7 @@ $mail->IsHTML(true);
 $mail->isSMTP(); // Send using SMTP
 $mail->Host = 'smtp.gmail.com'; // Set the SMTP server to send through
 $mail->SMTPAuth = true; // Enable SMTP authentication
-$mail->Username = ''; // SMTP username (email)
+$mail->Username = 'web.dev.egolab@gmail.com'; // SMTP username (email)
 $mail->Password = ''; // SMTP password (Google Account -> Security -> App passwords -> Add)
 
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;

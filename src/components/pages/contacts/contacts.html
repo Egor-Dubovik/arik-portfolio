@@ -1,0 +1,49 @@
+<script type="module" src="@components/pages/contacts/contacts.js"></script>
+<link rel="stylesheet" href="@components/pages/contacts/contacts.scss">
+<main class="page page--contacts">
+	<article class="contacts">
+		<div class="contacts__container">
+			<figure class="contacts__picture">
+				<img class="contacts__image" src="@img/arik.png" alt="Image">
+			</figure>
+			<div class="contacts__body">
+				<div data-fls-border class="contacts__form form-contacts">
+					<div class="form-contacts__header">
+						<div data-fls-label class="form-contacts__label">Contact</div>
+						<h1 data-fls-title class="form-contacts__title">Let’s get in touch.</h1>
+					</div>
+					<form data-fls-form="dev" data-fls-form-popup="popup" method="POST" class="form-contacts__body">
+						<div class="form-contacts__line">
+							<input data-fls-form-errtext="Name required" data-fls-input required type="text" placeholder="Name" name="name" class="form-contacts__input">
+						</div>
+						<div class="form-contacts__line">
+							<input data-fls-form-errtext="E-mail error" data-fls-input required type="email" placeholder="Email" name="email" class="form-contacts__input">
+						</div>
+						<textarea data-fls-input-autoheight data-fls-input autocomplete="off" placeholder="Message" name="message" class="form-contacts__input"></textarea>
+						<button type="submit" class="form-contacts__button button button--primary">Send Message</button>
+					</form>
+				</div>
+				<ul data-fls-socialblocks class="contacts__social social-blocks">
+					<li class="social-blocks__item">
+						<a href="#" target="_blank" data-fls-border class="social-blocks__link social-blocks__item--icon-s-inst">Instagram</a>
+					</li>
+					<li class="social-blocks__item">
+						<a href="#" target="_blank" data-fls-border class="social-blocks__link social-blocks__item--icon-s-tw">Twitter</a>
+					</li>
+					<li class="social-blocks__item">
+						<a href="#" target="_blank" data-fls-border class="social-blocks__link social-blocks__item--icon-s-fb">Facebook</a>
+					</li>
+					<li class="social-blocks__item">
+						<a href="#" target="_blank" data-fls-border class="social-blocks__link social-blocks__item--icon-s-bh">Behance</a>
+					</li>
+					<li class="social-blocks__item">
+						<a href="#" target="_blank" data-fls-border class="social-blocks__link social-blocks__item--icon-s-drb">Dribbble</a>
+					</li>
+					<li class="social-blocks__item">
+						<a href="#" target="_blank" data-fls-border class="social-blocks__link social-blocks__item--icon-s-ptn">Pinterest</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</article>
+</main>

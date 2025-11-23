@@ -1,0 +1,52 @@
+<script type="module" src="@components/pages/work/work.js"></script>
+<link rel="stylesheet" href="@components/pages/work/work.scss">
+
+<main class="page page--work">
+	<div class="page__header-work header-work">
+		<div data-fls-blockhead class="header-work__blockhead blockhead">
+			<h1 class="blockhead__title">Work</h1>
+			<div class="blockhead__text">
+				<p>My latest web design projects and see how we can help bring your ideas to life.</p>
+			</div>
+		</div>
+	</div>
+	<div class="page__body-work body-work">
+		<div class="body-work__container">
+			<div class="body-work__works works">
+				<include src="@components/custom/work/work.html" locals='{
+				"link":"#",
+				"category-link":"#",
+				"image":"@img/works/01.jpg",
+				"name":"Space",
+				"category":"Webdesign"
+				}'>
+				</include>
+				<include src="@components/custom/work/work.html" locals='{
+				"link":"#",
+				"category-link":"#",
+				"image":"@img/works/02.jpg",
+				"name":"Nova",
+				"category":"Webdesign"
+				}'>
+				</include>
+				<include src="@components/custom/work/work.html" locals='{
+				"link":"#",
+				"category-link":"#",
+				"image":"@img/works/03.jpg",
+				"name":"Sonic",
+				"category":"Webdesign"
+				}'>
+				</include>
+				<include src="@components/custom/work/work.html" locals='{
+				"link":"#",
+				"category-link":"#",
+				"image":"@img/works/04.jpg",
+				"name":"Solar",
+				"category":"Webdesign"
+				}'>
+				</include>
+			</div>
+		</div>
+	</div>
+
+</main>

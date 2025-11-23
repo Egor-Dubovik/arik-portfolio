@@ -6,13 +6,13 @@
 	&__item {
 	}
 	&__link {
+		height: 100%;
 		color: $text-default;
 		font-family: $secondFamily;
 		font-size: 13px;
 		line-height: 1.7; /* 20.8px */
 		letter-spacing: 1.5px;
 		text-transform: uppercase;
-		// display: flex;
 		display: grid;
 		grid-template-columns: auto 1fr auto;
 		align-items: center;

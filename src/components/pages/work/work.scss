@@ -1,0 +1,15 @@
+.page {
+	&--work {
+		@include adaptiveValue("padding-top", 224, 120);
+		@include adaptiveValue("padding-bottom", 160, 30);
+	}
+	// .page__header-work
+	&__header-work {
+		@include adaptiveValue("margin-bottom", 96, 30);
+	}
+}
+.header-work {
+	// .header-work__blockhead
+	&__blockhead {
+	}
+}
