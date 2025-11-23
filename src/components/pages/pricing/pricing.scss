@@ -1,0 +1,192 @@
+.pricing {
+	@include adaptiveValue('padding-top', 224, 120);
+	@include adaptiveValue('padding-bottom', 128, 30);
+	// .pricing__container
+	&__container {
+	}
+	// .pricing__blockhead
+	&__blockhead {
+		@include adaptiveValue('margin-bottom', 64, 30);
+	}
+	// .pricing__items
+	&__items {
+		display: grid;
+		@include adaptiveValue('gap', 32, 20);
+		grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
+		@include adaptiveValue('margin-bottom', 160, 40);
+	}
+	// .pricing__item
+	&__item {
+	}
+	// .pricing__faq
+	&__faq {
+	}
+}
+.item-pricing {
+	@include adaptiveValue('padding', 48, 20);
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	@include adaptiveValue('gap', 32, 20);
+	// .item-pricing__popular
+	&__popular {
+		position: absolute;
+		@include adaptiveValue('top', 20, 0);
+		@include adaptiveValue('right', 20, 0);
+		padding: 8px;
+		background-color: $background-primary;
+		text-transform: uppercase;
+		color: $text-inverse;
+		font-size: 12px;
+		line-height: 1.2;
+	}
+	// .item-pricing__header
+	&__header {
+		display: grid;
+		gap: 8px;
+	}
+	// .item-pricing__title
+	&__title {
+	}
+	// .item-pricing__value
+	&__value {
+		font-family: $secondFamily;
+		@include adaptiveValue('font-size', 32, 24);
+		color: $text-default;
+		line-height: 1.2;
+		font-weight: 300;
+		letter-spacing: 1px;
+	}
+	// .item-pricing__text
+	&__text {
+		line-height: 1.8;
+		p {
+			&:not(:last-child) {
+				margin-bottom: 15px;
+			}
+		}
+	}
+	// .item-pricing__services
+	&__services {
+		flex-grow: 1;
+		color: $text-default;
+	}
+	// .item-pricing__service
+	&__service {
+		&:not(:last-child) {
+			padding-bottom: 16px;
+			margin-bottom: 16px;
+			border-bottom: 1px solid $border-default;
+		}
+	}
+	// .item-pricing__button
+	&__button {
+	}
+}
+.pricing {
+}
+.faq-pricing {
+	display: flex;
+	@media (width > toEm(1000)) {
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+
+	@media (width <= toEm(1000)) {
+		flex-direction: column;
+	}
+	// .faq-pricing__header
+	&__header {
+		@media (width > toEm(1000)) {
+			position: sticky;
+			top: 0;
+			padding-block: 32px;
+			padding-right: 48px;
+		}
+		@media (width <= toEm(1000)) {
+			&:not(:last-child) {
+				margin-bottom: 20px;
+			}
+		}
+	}
+	// .faq-pricing__label
+	&__label {
+	}
+	// .faq-pricing__title
+	&__title {
+		color: $text-default;
+		font-family: $secondFamily;
+		@include adaptiveValue('font-size', 64, 48);
+		font-weight: 300;
+		line-height: 1.1;
+		span {
+			@media (width > toEm(1000)) {
+				display: block;
+			}
+			font-family: $thirdFamily;
+		}
+	}
+	// .faq-pricing__items
+	&__items {
+		@media (width > toEm(1000)) {
+			flex: 0 0 50%;
+		}
+	}
+	// .faq-pricing__item
+	&__item {
+		@include adaptiveValue('padding', 32, 10);
+		&:not(:last-child) {
+			margin-bottom: 16px;
+		}
+	}
+	// .faq-pricing__caption
+	&__caption {
+		cursor: pointer;
+		color: $text-default;
+		font-family: $secondFamily;
+		@include adaptiveValue('font-size', 20, 18);
+		font-weight: 300;
+		line-height: 1.4;
+		letter-spacing: 1px;
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-between;
+		gap: 10px;
+		align-items: center;
+		transition: color 0.3s;
+		&::before {
+			flex: 0 0 30px;
+			width: 30px;
+			aspect-ratio: 1;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 50%;
+			border: 1px solid $border-default;
+			background-color: $background-muted;
+			backdrop-filter: blur(15px);
+			transition: rotate 0.3s;
+			font-size: 10px;
+		}
+		&.--spoller-active::before {
+			rotate: 45deg;
+		}
+		html:not([data-fls-touch]) & {
+			@media (any-hover: hover), (pointer: fine) {
+				&:hover {
+					color: $primary-hover;
+				}
+			}
+		}
+	}
+	// .faq-pricing__body
+	&__body {
+		padding-top: 16px;
+		p {
+			line-height: 1.8;
+			&:not(:last-child) {
+				margin-bottom: 15px;
+			}
+		}
+	}
+}
