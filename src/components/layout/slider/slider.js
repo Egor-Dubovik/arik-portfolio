@@ -8,7 +8,8 @@
 // При необхідності підключаємо додаткові модулі слайдера, вказуючи їх у {} через кому
 // Приклад: { Navigation, Autoplay }
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { isMobile } from '@js/common/functions.js';
 /*
 Основні модулі слайдера:
 Navigation, Pagination, Autoplay, 
@@ -18,49 +19,58 @@ EffectFade, Lazy, Manipulation
 
 // Стилі Swiper
 // Підключення базових стилів
-import "./slider.scss";
+import './slider.scss';
 // Повний набір стилів з node_modules
 // import 'swiper/css/bundle';
 
+function isMobileDevice() {
+	return window.innerWidth <= 767.998;
+}
+
+let swiperInstance = null;
+
 // Ініціалізація слайдерів
 function initSliders() {
-	// Список слайдерів
-	// Перевіряємо, чи є слайдер на сторінці
-	if (document.querySelector('.swiper')) { // <- Вказуємо склас потрібного слайдера
-		// Створюємо слайдер
-		new Swiper('.swiper', { // <- Вказуємо склас потрібного слайдера
-			// Підключаємо модулі слайдера
-			// для конкретного випадку
-			modules: [Navigation],
+	if (document.querySelector('.reviews__slider')) {
+		if (!isMobileDevice()) {
+			return;
+		}
+
+		// Якщо слайдер вже ініціалізований, не створюємо новий
+		if (swiperInstance) {
+			return;
+		}
+
+		swiperInstance = new Swiper('.swiper', {
+			modules: [Navigation, Pagination, Autoplay],
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
-			spaceBetween: 0,
-			//autoHeight: true,
+			spaceBetween: 30,
+			autoHeight: true,
 			speed: 800,
+			enabled: isMobileDevice(),
 
 			//touchRatio: 0,
 			//simulateTouch: false,
-			//loop: true,
+			// loop: true,
 			//preloadImages: false,
 			//lazy: true,
 
-			/*
 			// Ефекти
 			effect: 'fade',
 			autoplay: {
-				delay: 3000,
+				delay: 8000,
 				disableOnInteraction: false,
 			},
-			*/
 
 			// Пагінація
-			/*
 			pagination: {
-				el: '.swiper-pagination',
-				clickable: true,
+				el: '.swiper__pagination',
+				type: 'bullets',
+				clickable: false,
+				dynamicBullets: false,
 			},
-			*/
 
 			// Скроллбар
 			/*
@@ -75,34 +85,78 @@ function initSliders() {
 				prevEl: '.swiper-button-prev',
 				nextEl: '.swiper-button-next',
 			},
-			/*
-			// Брейкпоінти
+			// Брейкпоінти - вимикаємо слайдер на екранах більше 768px
 			breakpoints: {
-				640: {
-					slidesPerView: 1,
-					spaceBetween: 0,
-					autoHeight: true,
-				},
 				768: {
-					slidesPerView: 2,
-					spaceBetween: 20,
-				},
-				992: {
-					slidesPerView: 3,
-					spaceBetween: 20,
-				},
-				1268: {
-					slidesPerView: 4,
-					spaceBetween: 30,
+					enabled: false,
 				},
 			},
-			*/
 			// Події
 			on: {
+				init: function (swiper) {
+					const allSlides = document.querySelector('.swiper__all-fraction');
+					const allSlidesItems = document.querySelectorAll('.item-review');
+					allSlides.innerHTML =
+						allSlidesItems.length < 10 ? `0${allSlidesItems.length}` : allSlidesItems.length;
 
-			}
+					updatePaginationPosition(swiper);
+					resetBulletAnimation();
+				},
+				slideChange: function (swiper) {
+					const currentSlide = document.querySelector('.swiper__current-fraction');
+					currentSlide.innerHTML =
+						swiper.realIndex + 1 < 10 ? `0${swiper.realIndex + 1}` : swiper.realIndex + 1;
+
+					updatePaginationPosition(swiper);
+					resetBulletAnimation();
+				},
+			},
 		});
 	}
 }
-document.querySelector('[data-fls-slider]') ?
-	window.addEventListener("load", initSliders) : null
+
+function updatePaginationPosition(swiper) {
+	const pagination = document.querySelector('.swiper__pagination');
+	if (pagination) {
+		const activeIndex = swiper.activeIndex;
+		const translateX = -activeIndex * 100;
+		pagination.style.transform = `translateX(${translateX}%) translateY(10%)`;
+	}
+}
+
+function resetBulletAnimation() {
+	const activeBullet = document.querySelector('.swiper-pagination-bullet-active');
+
+	if (activeBullet) {
+		activeBullet.classList.add('bullet-animation-reset');
+
+		requestAnimationFrame(() => {
+			requestAnimationFrame(() => {
+				setTimeout(() => {
+					activeBullet.classList.remove('bullet-animation-reset');
+				}, 10);
+			});
+		});
+	}
+}
+
+// function handleResize() {
+// 	if (swiperInstance) {
+// 		if (isMobileDevice()) {
+// 			swiperInstance.enable();
+// 		} else {
+// 			swiperInstance.disable();
+// 		}
+// 	} else if (isMobileDevice() && document.querySelector('.reviews__slider')) {
+// 		// Якщо слайдер не ініціалізований, але тепер мобільний пристрій
+// 		initSliders();
+// 	}
+// }
+
+// let resizeTimer;
+// window.addEventListener('resize', () => {
+// 	clearTimeout(resizeTimer);
+// 	resizeTimer = setTimeout(handleResize, 250);
+// });
+
+document.querySelector('[data-fls-slider]') ? window.addEventListener('load', initSliders) : null;

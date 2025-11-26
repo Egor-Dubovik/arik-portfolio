@@ -265,23 +265,23 @@
 		max-width: 1200px;
 		margin: 0 auto;
 		column-gap: 26px;
-		columns: 2;
 
-		@media (max-width: toEm($mobile)) {
-			columns: 1;
+		@media (min-width: toEm($mobile)) {
+			columns: 2;
 		}
 	}
 
 	// .reviews__item
 	&__item {
-		width: 100%;
 		margin-bottom: 32px;
-		translate: 0 20%;
-		transition: translate 0.8s;
-		will-change: translate;
 
-		&.--watcher-view {
-			translate: 0 0;
+		@media (min-width: toEm($mobile)) {
+			translate: 0 20%;
+			transition: translate 0.8s;
+			will-change: translate;
+			&.--watcher-view {
+				translate: 0 0;
+			}
 		}
 	}
 }
