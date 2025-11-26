@@ -11,11 +11,13 @@
 	}
 }
 .skill {
-	@include adaptiveValue('padding', 48, 15);
+	@include adaptiveValue('padding', 42, 15);
 	border-radius: 2px;
 	border: 1px solid $border-default;
 	background: $background-muted;
 	flex: 1 1 350px;
+	display: flex;
+	flex-direction: column;
 
 	> * {
 		margin-bottom: 8px;
@@ -52,6 +54,7 @@
 
 	// .skill__text
 	&__text {
+		flex: 1 1 auto;
 		line-height: 1.8;
 		margin-bottom: 32px;
 	}
