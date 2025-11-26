@@ -31,29 +31,15 @@
 		height: 54svh;
 		object-fit: contain;
 		mix-blend-mode: lighten;
-		// opacity: 0;
-		// [data-fls-loaded] & {
-		// 	animation: show-items 1.5s ease forwards;
-		// }
+		opacity: 0;
+		[data-fls-loaded] & {
+			animation: hero-image 1.5s ease forwards;
+		}
 	}
 	// .hero__blockhead
 	&__blockhead {
 		position: relative;
 		translate: 0 -12%;
-		// opacity: 0;
-		// [data-fls-loaded] & {
-		// 	animation: show-items 1.5s ease forwards 0.5s;
-		// }
-	}
-	@keyframes show-items {
-		0% {
-			top: 10%;
-			opacity: 0;
-		}
-		100% {
-			top: 0;
-			opacity: 1;
-		}
 	}
 }
 

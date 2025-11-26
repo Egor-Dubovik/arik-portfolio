@@ -1,3 +1,24 @@
+.blockhead[data-first-screen] {
+	> * {
+		opacity: 0;
+		translate: 0 20%;
+	}
+
+	[data-fls-loaded] & {
+		> * {
+			animation-name: first-screen-blockhead-item;
+			animation-duration: 0.9s;
+			animation-timing-function: ease;
+			animation-fill-mode: forwards;
+			animation-delay: 0.4s;
+		}
+
+		.blockhead__text {
+			animation-delay: 0.6s;
+		}
+	}
+}
+
 .blockhead {
 	text-align: center;
 	display: grid;
@@ -5,17 +26,26 @@
 	@include adaptiveValue('gap', 16, 8);
 	text-wrap: balance;
 
-	// > * {
-	// 	&[data-fls-watcher] {
-	// 		translate: 0 20%;
-	// 		opacity: 0;
-	// 		transition: all 0.8s;
-	// 	}
-	// 	&.--watcher-view {
-	// 		opacity: 1;
-	// 		translate: 0;
-	// 	}
-	// }
+	> * {
+		&[data-fls-watcher] {
+			translate: 0 20%;
+			opacity: 0;
+			transition-property: all;
+			transition: all 0.9s ease;
+
+			@for $i from 1 through 6 {
+				&:nth-of-type(#{$i}) {
+					$delay: 0 + ($i * 0.1);
+					transition-delay: #{$delay}s;
+				}
+			}
+		}
+		&.--watcher-view {
+			opacity: 1;
+			translate: 0;
+		}
+	}
+
 	&--gap-8 {
 		gap: 8px;
 	}
@@ -74,5 +104,16 @@
 	}
 	&__button {
 		margin-top: 24px;
+	}
+}
+
+@keyframes first-screen-blockhead-item {
+	0% {
+		opacity: 0;
+		translate: 0 20%;
+	}
+	100% {
+		opacity: 1;
+		translate: 0 0;
 	}
 }
