@@ -47,33 +47,8 @@
 .clients {
 	@include adaptiveValue('padding-top', 80, 15);
 	@include adaptiveValue('padding-bottom', 80, 60);
-	// .clients__container
-
-	[data-fls-marquee-inner] {
-		align-items: center;
-		@include adaptiveValue('gap', 20, 0);
-		// opacity: 0;
-		// translate: 0 100%;
-
-		// &.--watcher-view {
-		// 	transition: all 0.8s;
-		// 	opacity: 1;
-		// 	translate: 0 0;
-		// }
-	}
 
 	&__item {
-		// scale: 0;
-		.--watcher-view & {
-			// transition-duration: 0.8s;
-			// @for $i from 1 through 6 {
-			// 	&:nth-child(#{$i}) {
-			// 		$delay: 0.1 * $i;
-			// 		transition-delay: #{$delay}s;
-			// 	}
-			// }
-			// scale: 1;
-		}
 	}
 }
 
@@ -81,12 +56,21 @@
 .skills {
 	// .skills__container
 	&__container {
-		// 	translate: 0 30%;
-		// 	transition-property: translate;
-		// 	transition-duration: 1s;
-		// 	&.--watcher-view {
-		// 		translate: 0 0;
-		// 	}
+		> * {
+			transition-property: translate;
+			transition-duration: 1s;
+			@for $i from 1 through 6 {
+				&:nth-of-type(#{$i}) {
+					$delay: 0 + ($i * 0.05);
+					$t: 30% + ($i * 10%);
+					transition-delay: #{$delay}s;
+					translate: 0 #{$t};
+				}
+			}
+		}
+		&.--watcher-view > * {
+			translate: 0 0;
+		}
 	}
 }
 
