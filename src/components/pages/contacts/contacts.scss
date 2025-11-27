@@ -29,9 +29,9 @@
 		top: 0;
 		left: 0;
 		mix-blend-mode: lighten;
-		translate: 0 20%;
+		translate: 0 5%;
 		opacity: 0;
-		transition: all 0.9s;
+		transition: all 0.8s;
 
 		[data-fls-loaded] & {
 			translate: 0 0;
@@ -48,8 +48,8 @@
 	}
 	// .contacts__form
 	&__form {
-		translate: 0 -20%;
-		transition: translate 1.2s;
+		translate: 0 -5%;
+		transition: all 1.2s;
 
 		[data-fls-loaded] & {
 			translate: 0 0;
@@ -60,8 +60,8 @@
 		> * {
 			flex: 1 1 240px;
 		}
-		translate: 0 20%;
-		transition: translate 1.2s;
+		translate: 0 5%;
+		transition: all 1.2s;
 
 		[data-fls-loaded] & {
 			translate: 0 0;
