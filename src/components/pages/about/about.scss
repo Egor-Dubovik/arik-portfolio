@@ -19,6 +19,7 @@
 	// .about__picture
 	&__picture {
 		position: relative;
+
 		@media (min-width: toEm($mobile)) {
 			flex: 1 1 520px;
 		}
@@ -28,6 +29,21 @@
 		position: sticky;
 		top: 0;
 		mix-blend-mode: lighten;
+		translate: 0 -20%;
+		transition: translate 0.9s;
+
+		@media (max-width: toEm($mobile)) {
+			translate: 0 20%;
+			opacity: 0;
+			transition: all 1.2s 0.8s;
+		}
+
+		[data-fls-loaded] & {
+			translate: 0 0;
+			@media (max-width: toEm($mobile)) {
+				opacity: 1;
+			}
+		}
 	}
 	// .about__header
 	&__header {
@@ -112,6 +128,7 @@
 		border-radius: 2px;
 		overflow: hidden;
 		border: 1px solid $border-default;
+
 		&::before {
 			content: '';
 			position: absolute;
@@ -126,6 +143,7 @@
 	&__image {
 	}
 }
+
 .awards-about {
 	@include adaptiveValue('padding', 48, 20);
 	// .awards-about__title
