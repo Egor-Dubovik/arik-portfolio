@@ -1,9 +1,9 @@
 .blog {
-	@include adaptiveValue("padding-top", 224, 120);
-	@include adaptiveValue("padding-bottom", 128, 30);
+	@include adaptiveValue('padding-top', 224, 120);
+	@include adaptiveValue('padding-bottom', 128, 30);
 	// .blog__hero
 	&__hero {
-		@include adaptiveValue("margin-bottom", 64, 30);
+		@include adaptiveValue('margin-bottom', 64, 30);
 	}
 	// .blog__body
 	&__body {
@@ -28,6 +28,14 @@
 		display: grid;
 		gap: 32px;
 		grid-template-columns: repeat(auto-fill, minmax(min(370px, 100%), 1fr));
+		translate: 0 8%;
+		opacity: 0;
+		transition: translate 1s 0.8s, opacity 1.2s 0.8s;
+
+		[data-fls-loaded] & {
+			translate: 0 0;
+			opacity: 1;
+		}
 	}
 	// .body-blog__item
 	&__item {
