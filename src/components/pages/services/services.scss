@@ -37,8 +37,17 @@
 	}
 	// .hero-services__image
 	&__image {
+		filter: blur(15px);
+		transition: filter 1s 0.3s;
+		will-change: filter;
 		@media (max-width: toEm(1920)) and (min-width: toEm(1200)) {
 			max-width: 1200px;
+		}
+
+		[data-fls-loaded] & {
+			&.--watcher-view {
+				filter: blur(0);
+			}
 		}
 	}
 }
@@ -54,8 +63,12 @@
 	}
 	// .stats__item
 	&__item {
-		flex: 1 1 10px;
+		flex: 1 1 21%;
 		span {
+		}
+
+		@media (max-width: toEm($mobileSmall)) {
+			flex: 1 1 120px;
 		}
 	}
 }
@@ -91,6 +104,11 @@
 	}
 	// .services__item
 	&__item {
+		translate: 0 2%;
+		transition: translate 0.6s;
+		&.--watcher-view {
+			translate: 0 0;
+		}
 	}
 }
 .item-service {

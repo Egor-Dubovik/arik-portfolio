@@ -37,76 +37,79 @@
 	.swiper-button-lock {
 		display: none !important;
 	}
+}
 
-	.swiper__controll {
-		margin-bottom: 2px;
+.swiper__controll {
+	margin-bottom: 2px;
+	@media (min-width: toEm($mobile)) {
+		display: none;
 	}
-	.swiper__fraction {
-		display: flex;
-		align-items: flex-end;
-		color: #fff;
-		font-weight: 600;
-		letter-spacing: 0.2em;
-	}
-	.swiper__current-fraction {
-		color: $text-default;
-		font-size: toRem(24);
-	}
-	.swiper__all-fraction {
-	}
+}
+.swiper__fraction {
+	display: flex;
+	align-items: flex-end;
+	color: #fff;
+	font-weight: 600;
+	letter-spacing: 0.2em;
+}
+.swiper__current-fraction {
+	color: $text-default;
+	font-size: toRem(24);
+}
+.swiper__all-fraction {
+}
 
-	.swiper__pagination {
-		display: flex;
+.swiper__pagination {
+	display: flex;
+	width: 100%;
+
+	.swiper-pagination-bullet {
+		flex: 0 0 100%;
+		position: relative;
 		width: 100%;
+		height: 30px;
+		transition: all 0.3s ease;
+		cursor: pointer;
 
-		.swiper-pagination-bullet {
-			flex: 0 0 100%;
-			position: relative;
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
 			width: 100%;
-			height: 30px;
-			transition: all 0.3s ease;
-			cursor: pointer;
-
-			&::after {
-				content: '';
-				position: absolute;
-				top: 50%;
-				width: 100%;
-				height: 2px;
-				background-color: #fff;
-				transform: translate(0, -50%);
-			}
-
-			&::before {
-				content: '';
-				position: absolute;
-				top: 50%;
-				left: 0;
-				width: 10px;
-				height: 10px;
-				border-radius: 50%;
-				background-color: $background-primary;
-				opacity: 0;
-				transform: translateY(-50%);
-			}
+			height: 2px;
+			background-color: #fff;
+			transform: translate(0, -50%);
 		}
 
-		.swiper-pagination-bullet-active {
-			&::after {
-				background-color: $background-primary;
-			}
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background-color: $background-primary;
+			opacity: 0;
+			transform: translateY(-50%);
+		}
+	}
 
+	.swiper-pagination-bullet-active {
+		&::after {
+			background-color: $background-primary;
+		}
+
+		&::before {
+			left: calc(100% - 10px);
+			opacity: 1;
+			transition: left 9s linear;
+		}
+
+		&.bullet-animation-reset {
 			&::before {
-				left: calc(100% - 10px);
-				opacity: 1;
-				transition: left 9s linear;
-			}
-
-			&.bullet-animation-reset {
-				&::before {
-					left: 0;
-					transition: none;
-				}
+				left: 0;
+				transition: none;
 			}
 		}
 	}
