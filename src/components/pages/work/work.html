@@ -1,9 +1,8 @@
 <script type="module" src="@components/pages/work/work.js"></script>
 <link rel="stylesheet" href="@components/pages/work/work.scss">
-
 <main class="page page--work">
 	<div class="page__header-work header-work">
-		<div data-fls-blockhead class="header-work__blockhead blockhead">
+		<div data-fls-blockhead data-first-screen class="header-work__blockhead blockhead">
 			<h1 class="blockhead__title">Work</h1>
 			<div class="blockhead__text">
 				<p>My latest web design projects and see how we can help bring your ideas to life.</p>
@@ -14,7 +13,7 @@
 		<div class="body-work__container">
 			<div class="body-work__works works">
 				<include src="@components/custom/work/work.html" locals='{
-				"link":"#",
+				"link":"singlework",
 				"category-link":"#",
 				"image":"@img/works/01.jpg",
 				"name":"Space",
@@ -22,7 +21,7 @@
 				}'>
 				</include>
 				<include src="@components/custom/work/work.html" locals='{
-				"link":"#",
+				"link":"singlework",
 				"category-link":"#",
 				"image":"@img/works/02.jpg",
 				"name":"Nova",
@@ -30,7 +29,7 @@
 				}'>
 				</include>
 				<include src="@components/custom/work/work.html" locals='{
-				"link":"#",
+				"link":"singlework",
 				"category-link":"#",
 				"image":"@img/works/03.jpg",
 				"name":"Sonic",
@@ -38,7 +37,7 @@
 				}'>
 				</include>
 				<include src="@components/custom/work/work.html" locals='{
-				"link":"#",
+				"link":"singlework",
 				"category-link":"#",
 				"image":"@img/works/04.jpg",
 				"name":"Solar",
@@ -48,5 +47,4 @@
 			</div>
 		</div>
 	</div>
-
 </main>

@@ -90,7 +90,6 @@
 	&__items {
 		html:not([data-fls-touch]) & {
 			&:has(.item-work:hover) .item-work:not(:hover) {
-				// scale: 0.99;
 				&::after {
 					opacity: 0.9;
 				}

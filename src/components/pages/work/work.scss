@@ -1,15 +1,33 @@
 .page {
 	&--work {
-		@include adaptiveValue("padding-top", 224, 120);
-		@include adaptiveValue("padding-bottom", 160, 30);
+		@include adaptiveValue('padding-top', 224, 120);
+		@include adaptiveValue('padding-bottom', 160, 30);
 	}
 	// .page__header-work
 	&__header-work {
-		@include adaptiveValue("margin-bottom", 96, 30);
+		@include adaptiveValue('margin-bottom', 96, 30);
 	}
 }
 .header-work {
 	// .header-work__blockhead
 	&__blockhead {
+	}
+}
+
+.works {
+	translate: 0 50px;
+	opacity: 0;
+	transition: all 1.2s 0.6s;
+	[data-fls-loaded] & {
+		translate: 0 0;
+		opacity: 1;
+	}
+
+	html:not([data-fls-touch]) & {
+		&:has(.item-work:hover) .item-work:not(:hover) {
+			&::after {
+				opacity: 0.9;
+			}
+		}
 	}
 }
