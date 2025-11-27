@@ -7,7 +7,6 @@
 .contacts {
 	// .contacts__container
 	&__container {
-		align-items: flex-start;
 		@include adaptiveValue('column-gap', 80, 20);
 
 		@media (min-width: toEm($tablet)) {
@@ -16,6 +15,7 @@
 	}
 	// .contacts__picture
 	&__picture {
+		position: relative;
 		@media (min-width: toEm($mobile)) {
 			flex: 1 1 719px;
 		}
@@ -25,7 +25,18 @@
 	}
 	// .contacts__image
 	&__image {
+		position: sticky;
+		top: 0;
+		left: 0;
 		mix-blend-mode: lighten;
+		translate: 0 20%;
+		opacity: 0;
+		transition: all 0.9s;
+
+		[data-fls-loaded] & {
+			translate: 0 0;
+			opacity: 1;
+		}
 	}
 	// .contacts__body
 	&__body {
@@ -37,11 +48,23 @@
 	}
 	// .contacts__form
 	&__form {
+		translate: 0 -20%;
+		transition: translate 1.2s;
+
+		[data-fls-loaded] & {
+			translate: 0 0;
+		}
 	}
 	// .contacts__social
 	&__social {
 		> * {
 			flex: 1 1 240px;
+		}
+		translate: 0 20%;
+		transition: translate 1.2s;
+
+		[data-fls-loaded] & {
+			translate: 0 0;
 		}
 	}
 }
